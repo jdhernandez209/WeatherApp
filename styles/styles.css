@@ -1,0 +1,182 @@
+/* container
+row stockton us
+row heart
+row 2 sun and 70f
+row 3 high low 
+heart justifyed to right
+70f justifyed left in colum
+stockton ca justifyed left
+high low justifyed center of colums
+
+create seperate ids for everything
+max min temp, stockton, 70f the search bar, sun anything thats gonna change
+hearts gonna be off canvas
+monday-friday ids with sun ids with 70f ids
+
+
+paste into async function
+Call 5 day / 3 hour forecast data
+8ee213faeb0cfd8b025313fe8a69b0ce
+
+
+*/
+
+.Containcity{
+  background-color: rgba(220, 220, 220, 0.788);
+  margin-top: 80px;
+  height: 300px;
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.932);
+  
+  
+  
+}
+
+.favorites{
+ text-align:right;
+  
+}
+
+.weatherIcon{
+  max-width: 90px;
+  padding-left: 40px;
+}
+
+.temp{
+  padding-top: 100px;
+}
+
+.highlow{
+  padding-top: 50px;
+  text-align: center;
+}
+
+.fiveday{
+  padding-top: 80px;
+  
+}
+
+
+.card{
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    margin-top: 20px;
+    
+  
+    
+}
+
+/*search bar*/
+
+.example{
+    text-align: center;
+    margin-top: 90px;
+    
+}
+
+.searchBtn{
+  border-color: black;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.932);
+
+}
+
+/* 5 day forcast*/
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/image/25501\ 1.png");
+    background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    padding-right: 5px;
+    width: 15%;
+    
+    
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .forcast {
+    margin: 0 10px;
+    margin-left: 300px;
+  }
+  
+  
+  
+  
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.932); /* this adds the "card" effect */
+    
+    text-align: left;
+    background-color: #f1f1f193;
+    border-color: black;
+    
+  }
+  
+
+
+ .city{
+  text-align: left;
+ }
+
+ .daysIcon{
+  max-width: 80px;
+  padding-left: 45px;
+  
+
+
+ }
+
+ .oneday{
+  text-align: center;
+ }
+
+ 
+
+.topnav {
+  overflow: hidden;
+  background-color: #33333365;
+  position:relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+  left: 1px;
+}
+
+.topnav a.icon {
+  background: rgba(0, 0, 0, 0.233);
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.active {
+  background-color: #6768671f;
+  color: white;
+}
