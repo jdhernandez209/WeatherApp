@@ -10,6 +10,7 @@ let Thusday = document.getElementById("Thusday");
 let Friday = document.getElementById("Friday");
 
 let currentWeather = [];
+let choosenCity = document.getElementById("searchBtn");
 
 async function getWeather(cityOfChoice){
     let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityOfChoice + "&units=imperial&appid=8ee213faeb0cfd8b025313fe8a69b0ce").then(Response => Response.json());
@@ -35,10 +36,10 @@ getWeather("stockton");
 
 searchBtn.addEventListener("keypress", function(event){
     if(event.key === "Enter"){
-        city = searchBtn.ariaValueMax;
-        getWeather(city)
+        choosenCity = searchBtn.value;
+        cityWeather(choosenCity)
     }
-})
+});
 
 //favorites bar
 function myFunction() {
