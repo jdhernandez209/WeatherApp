@@ -3,13 +3,16 @@ let favorites = document.getElementById("favorites");
 let searchBar = document.getElementById("searchBar");
 let tempature = document.getElementById("tempature");
 let highlow = document.getElementById("highlow");
-let Monday = document.getElementById("Monday");
-let Tuesday = document.getElementById("Tuesday");
-let Wednesday = document.getElementById("Wednesday");
-let Thusday = document.getElementById("Thusday");
+let onedaydate = document.getElementById("onedaydate");
+let twodaydate = document.getElementById("twodaydate");
+let threedaydate = document.getElementById("threedaydate");
+let fivedaydate = document.getElementById("fivedaydate");
 let Friday = document.getElementById("Friday");
 let searchBtn = document.getElementById("searchBtn");
-let wicon = document.getElementById("wicon");
+let mainIcon = document.getElementById("mainIcon");
+let onedaysIcon = document.getElementById("onedaysIcon");
+
+
 
 let currentWeather = [];
 let choosenCity = "";
@@ -21,7 +24,8 @@ async function getWeather(cityOfChoice){
     let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityOfChoice + "&units=imperial&appid=8ee213faeb0cfd8b025313fe8a69b0ce").then(Response => Response.json());
     console.log(apiResponse);
     currentlocation.innerText = apiResponse.city.name;
-    //WeatherData = apiResponse;
+    mainIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[4].weather.icon +  "2x.png";
+    //WeatherData = apiResponse;""
     tempature.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
     lowtemp.innerText = Math.round(apiResponse.list[3].main.temp) + "°";
     hightemp.innerText = Math.round(apiResponse.list[2].main.temp) + "°";
@@ -31,7 +35,9 @@ async function getWeather(cityOfChoice){
     fourdaytemp.innerText = Math.round(apiResponse.list[28].main.temp) + "°";
     fivedaytemp.innerText = Math.round(apiResponse.list[36].main.temp) + "°";
 
-    wicon.innerText = (apiResponse.list[0].weather.icon);
+    
+
+    
 
     
 
@@ -45,23 +51,15 @@ async function getWeather(cityOfChoice){
 getWeather("stockton");
 
 
-async function OnedayWeather(cityOfChoice){
-  let apiResponse = await fetch("https://api.openweathermap.org/data/3.0/onecall?q=" + cityOfChoice + "&units=imperial&appid=3c457dfe2f2981ce0d82f9357f88587d").then(Response => Response.json());
-  console.log(apiResponse);
-  currentlocation.innerText = apiResponse.city.name;
- 
- 
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let d = new Date();
+let day = days[d.getDay()];
+onedaydate.innerText = days[d.getDay()+1];
+twodaydate.innerText = days[d.getDay()+2];
+threedaydate.innerText = days[d.getDay()+3];
+fourdaydate.innerText = days[d.getDay()+4];
+fivedaydate.innerText = days[d.getDay()+5];
 
-  
-
-  
-
-  
-
-
-
-}
-OnedayWeather("stockton");
 
 
 
