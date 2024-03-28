@@ -1,108 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
-</head>
-
-<body>
-
-  <!-- Top Navigation Menu -->
-<div class="topnav">
-  <a href="#home" class="active">Favorites</a>
-  <div id="myLinks">
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-  </div>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
-
-
-
-  <!-- The form -->
-  <form class="example" action="action_page.php">
-    <input type="text" placeholder="Enter a City" name="search">
-    <button click ="searchBtn" id="searchBtn"  type="submit"><i>Search</i></button>
-  </form>
-  
-  <div class="container Containcity col-4">
-    <div class="row ">
-      <div class="col" id="currentlocation">Stockton, Ca</div>
-      <div class="col favorites" id="favorites"> ♥</div>
-    </div>
-    <div class="row temp">
-      <div class="col"><img class="weatherIcon" src="image/sun-icon-29.png" alt=""></div>
-      <div class="col" >
-        <h1 id="tempature">70f</h1>
+  <body>
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+      <a href="#home" class="active">Favorites</a>
+      <div id="myLinks">
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <ul class="todoList"></ul>
+      <div class="footer">
+        <span>You have <span class="pendingTasks"></span> Favorites</span>
+        <button>Clear All</button>
       </div>
     </div>
-    <div class="row">
-      <div class="col">High</div>
-      <div class="col">Low</div>
-      <div class="row">
-        <div class="col" id="hightemp">60F</div>
-        <div class="col" id="lowtemp">70F</div>
-  
+        
+      </div>
+     
     </div>
-  
-  
-  
-  
-  </div>
-  </div>
-  
-  
 
 
-
-
-
-
-<div class="container fiveday">
-
-  <div class="row forcast">
-    <div class="column">
-      <div id="Monday" class="card"><b>Monday</b><img class="daysIcon" src="image/sun-icon-29.png" alt=""><b id="onedaytemp">70F</b></div>
+<div class="inputfield">
+    <div class="example" id="searchBtn">
+      <input type="text" id="searchBar" id="searchInput" placeholder="Add your new Todo:">
       
+      <ul id="favoritesList"></ul>
     </div>
-    <div class="column">
-      <div id="Tuesday" class="card"><b>Tuesday</b><img class="daysIcon" src="image/sun-icon-29.png" alt=""><b id="twodaytemp">70F</b></div>
-    </div>
-    <div class="column">
-      <div id="Wednesday" class="card"><b>Wednesday</b><img class="daysIcon" src="image/sun-icon-29.png" alt=""><b id="threedaytemp">70F</b></div>
-      
-    </div>
-    <div class="column">
-      <div id="Thursday" class="card"><b>Thursday</b><img class="daysIcon" src="image/sun-icon-29.png" alt=""><b id="fourdaytemp">70F</b></div>
-    </div>
-    <div class="column">
-      <div id="Friday" class="card"><b>Friday</b><img class="daysIcon" src="image/sun-icon-29.png" alt=""><b id="fivedaytemp">70F</b></div>
-      
+
     
+    <div class="container Containcity col-4">
+      <div class="row">
+        <div class="col" id="currentlocation">Stockton, Ca</div>
+        <div class="col favorites" id="favorites">
+          <button><i class="fas fa-plus">♥</i></button>
+        </div>
+      </div>
+      <div class="row temp">
+        <div class="col">
+          <div class="weather-icon"><img src="icons/unknown.png" /></div>
+        </div>
+        <div class="col">
+          <h1 id="tempature">70f</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">High</div>
+        <div class="col">Low</div>
+        <div class="row">
+          <div class="col" id="hightemp">60F</div>
+          <div class="col" id="lowtemp">70F</div>
+        </div>
+      </div>
     </div>
-  </div>
-  
 
+    <div class="container fiveday">
+      <div class="row forcast">
+        <div class="column">
+          <div id="Monday" class="card">
+            <b>Monday</b
+            ><img class="daysIcon" src="image/sun-icon-29.png" alt="" /><b
+              id="onedaytemp"
+              >70F</b
+            >
+          </div>
+        </div>
+        <div class="column">
+          <div id="Tuesday" class="card">
+            <b>Tuesday</b
+            ><img class="daysIcon" src="image/sun-icon-29.png" alt="" /><b
+              id="twodaytemp"
+              >70F</b
+            >
+          </div>
+        </div>
+        <div class="column">
+          <div id="Wednesday" class="card">
+            <b>Wednesday</b
+            ><img class="daysIcon" src="image/sun-icon-29.png" alt="" /><b
+              id="threedaytemp"
+              >70F</b
+            >
+          </div>
+        </div>
+        <div class="column">
+          <div id="Thursday" class="card">
+            <b>Thursday</b
+            ><img class="daysIcon" src="image/sun-icon-29.png" alt="" /><b
+              id="fourdaytemp"
+              >70F</b
+            >
+          </div>
+        </div>
+        <div class="column">
+          <div id="Friday" class="card">
+            <b>Friday</b
+            ><img class="daysIcon" src="image/sun-icon-29.png" alt="" /><b
+              id="fivedaytemp"
+              >70F</b
+            >
+          </div>
+        </div>
+      </div>
+    </div>
 
-</div>
-
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="./scripts/script.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>
