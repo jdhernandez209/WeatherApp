@@ -11,6 +11,14 @@ let Friday = document.getElementById("Friday");
 let searchBtn = document.getElementById("searchBtn");
 let mainIcon = document.getElementById("mainIcon");
 let onedaysIcon = document.getElementById("onedaysIcon");
+let twodaysIcon = document.getElementById("twodaysIcon");
+let threedaysIcon = document.getElementById("threedaysIcon");
+let fourdaysIcon = document.getElementById("fourdaysIcon");
+let fivedaysIcon = document.getElementById("fivedaysIcon");
+
+
+
+
 
 
 
@@ -24,7 +32,15 @@ async function getWeather(cityOfChoice){
     let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityOfChoice + "&units=imperial&appid=8ee213faeb0cfd8b025313fe8a69b0ce").then(Response => Response.json());
     console.log(apiResponse);
     currentlocation.innerText = apiResponse.city.name;
-    mainIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[4].weather.icon +  "2x.png";
+    mainIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["1"].weather["0"].icon +  "@2x.png";
+    onedaysIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["2"].weather["0"].icon +  ".png";
+    twodaysIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["3"].weather["0"].icon +  ".png";
+    threedaysIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["4"].weather["0"].icon +  ".png";
+    fourdaysIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["5"].weather["0"].icon +  ".png";
+    fivedaysIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["6"].weather["0"].icon +  ".png";
+
+
+
     //WeatherData = apiResponse;""
     tempature.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
     lowtemp.innerText = Math.round(apiResponse.list[3].main.temp) + "°";
@@ -45,20 +61,22 @@ async function getWeather(cityOfChoice){
 
     
 
+    
+
 
   
 }
 getWeather("stockton");
 
 
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let d = new Date();
-let day = days[d.getDay()];
-onedaydate.innerText = days[d.getDay()+1];
-twodaydate.innerText = days[d.getDay()+2];
-threedaydate.innerText = days[d.getDay()+3];
-fourdaydate.innerText = days[d.getDay()+4];
-fivedaydate.innerText = days[d.getDay()+5];
+//let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//let d = new Date();
+//let day = days[d.getDay()];
+//dayOfWeek1.innerText = days[d.getDay()+1];
+//dayOfWeek2.innerText = days[d.getDay()+2];
+//dayOfWeek3.innerText = days[d.getDay()+3];
+//dayOfWeek4.innerText = days[d.getDay()+4];
+//dayOfWeek5.innerText = days[d.getDay()+5]; 
 
 
 
